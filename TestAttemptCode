@@ -1,0 +1,24 @@
+#include "mainwindow.h"
+#include "ui_mainwindow.h"
+#include <Qpixmap>
+
+MainWindow::MainWindow(QWidget *parent) :
+    QMainWindow(parent),
+    ui(new Ui::MainWindow)
+{
+    ui->setupUi(this);
+    QpixMap pix("C:/Users/S7/Documents/Repository/Qt/test_data/SP.raw");  //call .raw image 
+    ui->Label_pic->setpixmap(pix.scaled(1920,1536,Qt::KeepAspectRatio));	//Set Parameters for raw image
+
+
+}
+
+MainWindow::~MainWindow()
+{
+    delete ui;
+}
+
+//Troubleshooting checklist
+//Qpix doesnt work try (QfilingDialog)
+//Look up <QACTION>, specifically (QMENU & QTOOLBAR)
+//Look up (QML+Qt creator)
